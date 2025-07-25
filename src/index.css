@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Futuristic black and white theme */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 0 0% 98%;
+
+    --radius: 0.75rem;
+
+    /* Glow effects */
+    --glow-white: 0 0% 100%;
+    --glow-intensity: 0.3;
+    
+    /* Tech colors */
+    --tech-js: 45 100% 51%;
+    --tech-react: 193 95% 68%;
+    --tech-node: 120 100% 25%;
+    --tech-angular: 0 100% 50%;
+    --tech-mongo: 120 100% 25%;
+    --tech-postgres: 211 100% 50%;
+  }
+
+  /* No light mode needed - always dark futuristic theme */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+}
+
+@layer components {
+  .section-card {
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300;
+  }
+  
+  .section-card:hover {
+    @apply shadow-[0_0_20px_rgba(255,255,255,0.1)] border-white/20;
+  }
+  
+  .glow-effect {
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)];
+  }
+  
+  .tech-icon {
+    @apply w-8 h-8 transition-transform duration-200 hover:scale-110;
+  }
+  
+  .progress-bar {
+    @apply w-full h-2 bg-muted rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-primary transition-all duration-300;
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 20s linear infinite;
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
