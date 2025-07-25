@@ -12,7 +12,7 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
     { id: "projects", label: "Projects" },
     { id: "education", label: "Education" },
     { id: "experience", label: "Experience" },
-    { id: "about", label: "About Me" }
+    // { id: "about", label: "About Me" }
   ];
 
   return (
