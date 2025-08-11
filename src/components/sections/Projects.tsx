@@ -106,6 +106,18 @@ const Projects = () => {
       ]
     },
     {
+      id: "physio-home",
+      name: "PhysioHome",
+      description: "Physiotherapy management system",
+      technologies: ["ReactJS", "TailwindCSS", "CSS", "HTML"],
+      progress: 10,
+      status: "in-progress",
+      link: "https://physiohome.netlify.app",
+      year: "2024",
+      details: "A digital platform for physiotherapy clinics to manage patient appointments, treatment plans, and progress tracking. Focus on user-friendly interface and accessibility.",
+      logo: "https://res.cloudinary.com/dnqsyelol/image/upload/v1753399770/Screenshot_2025-07-25_022919_xi2dag.png"
+    },
+    {
       id: "cookies-review",
       name: "Cookies",
       description: "Cookie review and rating platform",
@@ -128,17 +140,6 @@ const Projects = () => {
       details: "A modern betting platform with both web and mobile applications. Features include live odds, user account management, secure payment processing, and real-time updates.",
       isPrivate: true,
       logo: "https://res.cloudinary.com/dnqsyelol/image/upload/v1753399520/Screenshot_2025-07-25_022507_dz6iix.png"
-    },
-    {
-      id: "physio-home",
-      name: "PhysioHome",
-      description: "Physiotherapy management system",
-      technologies: ["ReactJS", "TailwindCSS", "CSS", "HTML"],
-      progress: 10,
-      status: "in-progress",
-      year: "2024",
-      details: "A digital platform for physiotherapy clinics to manage patient appointments, treatment plans, and progress tracking. Focus on user-friendly interface and accessibility.",
-      logo: "https://res.cloudinary.com/dnqsyelol/image/upload/v1753399770/Screenshot_2025-07-25_022919_xi2dag.png"
     },
     {
       id: "cookbook",
