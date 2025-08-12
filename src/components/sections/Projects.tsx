@@ -110,7 +110,7 @@ const Projects = () => {
       name: "PhysioHome",
       description: "Physiotherapy management system",
       technologies: ["ReactJS", "TailwindCSS", "CSS", "HTML"],
-      progress: 10,
+      progress: 90,
       status: "in-progress",
       link: "https://physiohome.netlify.app",
       year: "2024",

@@ -6,7 +6,7 @@ import Overview from "@/components/sections/Overview";
 import Projects from "@/components/sections/Projects";
 import Education from "@/components/sections/Education";
 import Experience from "@/components/sections/Experience";
-import About from "@/components/sections/About";
+// import About from "@/components/sections/About";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -22,7 +22,7 @@ const Index = () => {
       case "experience":
         return <Experience />;
       case "about":
-        return <About />;
+        return <div>About section coming soon</div>;
       default:
         return <Overview />;
     }
