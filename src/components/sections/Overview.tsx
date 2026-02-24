@@ -124,8 +124,8 @@ const Overview = () => {
                         {exp.title}
                       </h4>
                       {exp.id === "dxc" && (
-                        <span className="flex items-center gap-1 text-xs text-green-400 font-medium flex-shrink-0">
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                        <span className="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-medium flex-shrink-0">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-green-400 animate-pulse" />
                           Current
                         </span>
                       )}

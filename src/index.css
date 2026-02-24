@@ -2,13 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ─── Design tokens ─────────────────────────────────────────────────────────── */
 
 @layer base {
+  /* Default (dark) theme */
   :root {
-    /* Futuristic black and white theme */
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;
 
@@ -39,23 +37,54 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Glow effects */
-    --glow-white: 0 0% 100%;
-    --glow-intensity: 0.3;
-    
-    /* Tech colors */
-    --tech-js: 45 100% 51%;
-    --tech-react: 193 95% 68%;
-    --tech-node: 120 100% 25%;
-    --tech-angular: 0 100% 50%;
-    --tech-mongo: 120 100% 25%;
-    --tech-postgres: 211 100% 50%;
+    /* Glow shadow — white in dark mode */
+    --glow-sm: 0 0 10px rgba(255, 255, 255, 0.15);
+    --glow-md: 0 0 20px rgba(255, 255, 255, 0.15);
+    --glow-lg: 0 0 30px rgba(255, 255, 255, 0.12);
+    --glow-hover: 0 0 40px rgba(255, 255, 255, 0.2);
+    --card-hover-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    --card-hover-border: rgba(255, 255, 255, 0.2);
   }
 
-  /* No light mode needed - always dark futuristic theme */
-}
+  /* Light theme overrides */
+  .light {
+    --background: 0 0% 97%;
+    --foreground: 0 0% 9%;
 
-@layer base {
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 93%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 91%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 82%;
+    --input: 0 0% 82%;
+    --ring: 0 0% 9%;
+
+    /* Glow shadow — subtle dark in light mode */
+    --glow-sm: 0 0 10px rgba(0, 0, 0, 0.06);
+    --glow-md: 0 0 20px rgba(0, 0, 0, 0.06);
+    --glow-lg: 0 0 30px rgba(0, 0, 0, 0.08);
+    --glow-hover: 0 0 40px rgba(0, 0, 0, 0.12);
+    --card-hover-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    --card-hover-border: rgba(0, 0, 0, 0.15);
+  }
+
   * {
     @apply border-border;
   }
@@ -65,29 +94,45 @@ All colors MUST be HSL.
   }
 }
 
+/* ─── Component styles ───────────────────────────────────────────────────────── */
+
 @layer components {
   .section-card {
     @apply bg-card border border-border rounded-lg p-6 transition-all duration-300;
   }
-  
+
   .section-card:hover {
-    @apply shadow-[0_0_20px_rgba(255,255,255,0.1)] border-white/20;
+    box-shadow: var(--card-hover-shadow);
+    border-color: var(--card-hover-border);
   }
-  
+
   .glow-effect {
-    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)];
+    transition: all 0.3s;
   }
-  
+
+  .glow-effect:hover {
+    box-shadow: var(--glow-md);
+  }
+
   .tech-icon {
     @apply w-8 h-8 transition-transform duration-200 hover:scale-110;
   }
-  
+
   .progress-bar {
     @apply w-full h-2 bg-muted rounded-full overflow-hidden;
   }
-  
+
   .progress-fill {
     @apply h-full bg-primary transition-all duration-300;
+  }
+
+  /* Featured project card — theme-aware glow */
+  .featured-glow {
+    box-shadow: var(--glow-lg);
+  }
+
+  .featured-glow:hover {
+    box-shadow: var(--glow-hover);
   }
 
   .animate-scroll-right {

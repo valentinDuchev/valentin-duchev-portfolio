@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Github, Linkedin, Mail, Phone, MapPin, Download } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { downloadCV } from "@/utils/generateCV";
+import ThemeToggle from "@/components/ThemeToggle";
 import {
   SiReact,
   SiTypescript,
@@ -149,6 +150,7 @@ const Header = () => {
             >
               <Linkedin className="w-5 h-5" />
             </a>
+            <ThemeToggle />
           </div>
 
           {/* Languages */}

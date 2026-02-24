@@ -247,7 +247,7 @@ const Projects = () => {
             <DialogTrigger asChild>
               <Card className={`section-card cursor-pointer ${
                 project.featured
-                  ? 'relative bg-gradient-to-br from-card via-card to-card/50 border-2 border-primary/20 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transform hover:scale-[1.02] transition-all duration-300'
+                  ? 'relative bg-gradient-to-br from-card via-card to-card/50 border-2 border-primary/20 featured-glow transform hover:scale-[1.02] transition-all duration-300'
                   : ''
               }`}>
                 {project.featured && (
@@ -291,7 +291,7 @@ const Projects = () => {
                       </p>
                       {project.liveUsers && (
                         <div className="mt-2">
-                          <Badge className="bg-green-500/20 text-green-400 border border-green-500/30 text-xs font-semibold">
+                          <Badge className="bg-green-500/15 text-green-600 dark:text-green-400 border border-green-500/30 text-xs font-semibold">
                             🟢 {project.liveUsers}
                           </Badge>
                         </div>
@@ -370,7 +370,7 @@ const Projects = () => {
                   )}
                   {project.name}
                   {project.liveUsers && (
-                    <Badge className="bg-green-500/20 text-green-400 border border-green-500/30 text-xs font-semibold ml-2">
+                    <Badge className="bg-green-500/15 text-green-600 dark:text-green-400 border border-green-500/30 text-xs font-semibold ml-2">
                       🟢 {project.liveUsers}
                     </Badge>
                   )}
