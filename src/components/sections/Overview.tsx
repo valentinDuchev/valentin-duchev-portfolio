@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Briefcase } from "lucide-react";
+import { Briefcase, ChevronRight } from "lucide-react";
 import { experiences } from "@/data/experiences";
 
 // Only show the top 3 experience items in the overview
@@ -113,25 +113,31 @@ const Overview = () => {
               <Dialog key={exp.id}>
                 <DialogTrigger asChild>
                   <div
-                    className={`group cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-accent/60 ${
+                    className={`group cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-accent/60 flex items-center gap-2 ${
                       exp.id === "dxc"
                         ? "border-l-2 border-primary bg-primary/5 hover:bg-primary/10"
                         : "border-l-2 border-transparent"
                     }`}
                   >
-                    <div className="flex items-center justify-between gap-2">
-                      <h4 className={`font-semibold text-sm ${exp.id === "dxc" ? "text-primary" : ""}`}>
-                        {exp.title}
-                      </h4>
-                      {exp.id === "dxc" && (
-                        <span className="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-medium flex-shrink-0">
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-green-400 animate-pulse" />
-                          Current
-                        </span>
-                      )}
+                    {/* Text content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h4 className={`font-semibold text-sm ${exp.id === "dxc" ? "text-primary" : ""}`}>
+                          {exp.title}
+                        </h4>
+                        {exp.id === "dxc" && (
+                          <span className="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-medium flex-shrink-0">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-green-400 animate-pulse" />
+                            Current
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-muted-foreground">{exp.company}</p>
+                      <p className="text-xs text-muted-foreground/70 mt-0.5">{exp.period}</p>
                     </div>
-                    <p className="text-sm text-muted-foreground">{exp.company}</p>
-                    <p className="text-xs text-muted-foreground/70 mt-0.5">{exp.period}</p>
+
+                    {/* "Opens modal" hint */}
+                    <ChevronRight className="w-4 h-4 flex-shrink-0 text-muted-foreground/40 group-hover:text-muted-foreground group-hover:translate-x-0.5 transition-all duration-200" />
                   </div>
                 </DialogTrigger>
                 <ExperienceModal experience={exp} />

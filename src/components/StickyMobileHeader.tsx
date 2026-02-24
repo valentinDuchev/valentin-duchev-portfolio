@@ -46,7 +46,10 @@ const StickyMobileHeader = ({ activeTab, onTabChange }: Props) => {
       `}
     >
       {/* ── Compact bar ─────────────────────────────────── */}
-      <div className="bg-card/90 backdrop-blur-md border-b border-border shadow-lg px-5 py-3.5 flex items-center justify-between">
+      <div
+        className="bg-card/90 backdrop-blur-md border-b border-border shadow-lg px-5 py-3.5 flex items-center justify-between"
+        style={{ paddingTop: 'calc(env(safe-area-inset-top) + 0.875rem)' }}
+      >
         {/* Left: avatar + name */}
         <div className="flex items-center gap-3">
           <img
