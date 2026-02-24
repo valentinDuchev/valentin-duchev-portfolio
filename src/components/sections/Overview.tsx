@@ -1,4 +1,70 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Briefcase } from "lucide-react";
+import { experiences } from "@/data/experiences";
+
+// Only show the top 3 experience items in the overview
+const overviewExperiences = experiences.slice(0, 3);
+
+const ExperienceModal = ({ experience }: { experience: typeof experiences[0] }) => (
+  <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+    <DialogHeader>
+      <DialogTitle className="text-primary flex items-center gap-2">
+        <Briefcase className="w-5 h-5" />
+        {experience.title}
+      </DialogTitle>
+    </DialogHeader>
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h4 className="font-semibold">Company</h4>
+          <p className="text-sm text-muted-foreground">{experience.company}</p>
+        </div>
+        <div>
+          <h4 className="font-semibold">Location</h4>
+          <p className="text-sm text-muted-foreground">{experience.location}</p>
+        </div>
+        <div>
+          <h4 className="font-semibold">Period</h4>
+          <p className="text-sm text-muted-foreground">{experience.period}</p>
+        </div>
+        <div>
+          <h4 className="font-semibold">Type</h4>
+          <p className="text-sm text-muted-foreground">{experience.type}</p>
+        </div>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-2">Description</h4>
+        <p className="text-muted-foreground">{experience.description}</p>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Key Responsibilities</h4>
+        <ul className="space-y-2">
+          {experience.responsibilities.map((responsibility, index) => (
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <span className="text-primary mt-1">•</span>
+              <span>{responsibility}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Skills Developed</h4>
+        <div className="flex flex-wrap gap-2">
+          {experience.skills.map((skill) => (
+            <Badge key={skill} variant="outline" className="text-xs">
+              {skill}
+            </Badge>
+          ))}
+        </div>
+      </div>
+    </div>
+  </DialogContent>
+);
 
 const Overview = () => {
   return (
@@ -42,22 +108,35 @@ const Overview = () => {
           <CardHeader>
             <CardTitle className="text-primary">Experience</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <h4 className="font-semibold">Junior Software Developer</h4>
-              <p className="text-sm text-muted-foreground">DXC Technology</p>
-              <p className="text-sm text-muted-foreground">September 2025 – Present</p>
-            </div>
-            <div>
-              <h4 className="font-semibold">Full-Stack Developer</h4>
-              <p className="text-sm text-muted-foreground">Self-Employed / Personal Projects</p>
-              <p className="text-sm text-muted-foreground">2020 – Present</p>
-            </div>
-            <div>
-              <h4 className="font-semibold">Customer Service Representative</h4>
-              <p className="text-sm text-muted-foreground">Taxback / Sprintax</p>
-              <p className="text-sm text-muted-foreground">December 2022 – September 2025</p>
-            </div>
+          <CardContent className="space-y-2">
+            {overviewExperiences.map((exp) => (
+              <Dialog key={exp.id}>
+                <DialogTrigger asChild>
+                  <div
+                    className={`group cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-accent/60 ${
+                      exp.id === "dxc"
+                        ? "border-l-2 border-primary bg-primary/5 hover:bg-primary/10"
+                        : "border-l-2 border-transparent"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className={`font-semibold text-sm ${exp.id === "dxc" ? "text-primary" : ""}`}>
+                        {exp.title}
+                      </h4>
+                      {exp.id === "dxc" && (
+                        <span className="flex items-center gap-1 text-xs text-green-400 font-medium flex-shrink-0">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                          Current
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-muted-foreground">{exp.company}</p>
+                    <p className="text-xs text-muted-foreground/70 mt-0.5">{exp.period}</p>
+                  </div>
+                </DialogTrigger>
+                <ExperienceModal experience={exp} />
+              </Dialog>
+            ))}
           </CardContent>
         </Card>
       </div>
