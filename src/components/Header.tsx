@@ -21,12 +21,9 @@ import {
   SiGit,
   SiRedis,
   SiSocketdotio,
-  SiVite,
-  SiRadixui,
-  SiZod,
-  SiReacthookform,
-  SiReactrouter,
-  SiTanstackquery,
+  SiNextdotjs,
+  SiNestjs,
+  SiDocker,
 } from "react-icons/si";
 
 interface LanguageProps {
@@ -40,8 +37,10 @@ const technologies = [
   { name: "TypeScript", icon: <SiTypescript className="w-6 h-6 text-blue-500" /> },
   { name: "React", icon: <SiReact className="w-6 h-6 text-sky-400" /> },
   { name: "React Native", icon: <SiReact className="w-6 h-6 text-sky-300" /> },
+  { name: "Next.js", icon: <SiNextdotjs className="w-6 h-6 text-white" /> },
   { name: "Angular", icon: <SiAngular className="w-6 h-6 text-red-600" /> },
   { name: "Node.js", icon: <SiNodedotjs className="w-6 h-6 text-green-500" /> },
+  { name: "NestJS", icon: <SiNestjs className="w-6 h-6 text-red-500" /> },
   { name: "Express", icon: <SiExpress className="w-6 h-6 text-gray-300" /> },
   { name: "MongoDB", icon: <SiMongodb className="w-6 h-6 text-green-600" /> },
   { name: "PostgreSQL", icon: <SiPostgresql className="w-6 h-6 text-blue-400" /> },
@@ -52,14 +51,15 @@ const technologies = [
   { name: "Git", icon: <SiGit className="w-6 h-6 text-orange-600" /> },
   { name: "Redis", icon: <SiRedis className="w-6 h-6 text-red-500" /> },
   { name: "Socket.io", icon: <SiSocketdotio className="w-6 h-6 text-gray-100" /> },
+  { name: "Docker", icon: <SiDocker className="w-6 h-6 text-blue-400" /> },
 ];
 
 const Language = ({ name, flag, progress }: LanguageProps) => (
   <div className="flex flex-col items-center">
     <span className="text-2xl mb-1">{flag}</span>
     <div className="w-8 h-1 bg-muted rounded-full overflow-hidden">
-      <div 
-        className="h-full bg-primary transition-all duration-300" 
+      <div
+        className="h-full bg-primary transition-all duration-300"
         style={{ width: `${progress}%` }}
       />
     </div>
@@ -74,8 +74,9 @@ const Header = () => {
   ];
 
   return (
-    <Card className="section-card mb-8 relative">
-      <div className="flex flex-col md:flex-row items-start gap-6">
+    <Card className="section-card mb-8">
+      {/* Top section: avatar / info / actions */}
+      <div className="flex flex-col sm:flex-row items-start gap-6">
         {/* Avatar */}
         <div className="flex-shrink-0">
           <Dialog>
@@ -87,8 +88,8 @@ const Header = () => {
             </DialogTrigger>
             <DialogContent className="max-w-4xl max-h-[90vh] p-0 border-0 bg-transparent">
               <div className="relative flex items-center justify-center">
-                <img 
-                  src="https://res.cloudinary.com/dnqsyelol/image/upload/v1753401550/Screenshot_2025-07-25_014747_pxlu0x.png" 
+                <img
+                  src="https://res.cloudinary.com/dnqsyelol/image/upload/v1753401550/Screenshot_2025-07-25_014747_pxlu0x.png"
                   alt="Valentin Duchev - Full Size"
                   className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
                 />
@@ -98,69 +99,72 @@ const Header = () => {
         </div>
 
         {/* Personal Info */}
-        <div className="flex-1 space-y-3">
+        <div className="flex-1 space-y-3 min-w-0">
           <div>
             <h1 className="text-3xl font-bold text-primary">Valentin Duchev</h1>
-            <p className="text-lg text-muted-foreground">Age: 23</p>
+            <p className="text-lg text-muted-foreground">Software Developer</p>
           </div>
-          
+
           <div className="space-y-1 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
+              <MapPin className="w-4 h-4 flex-shrink-0" />
               <span>Varna, Bulgaria</span>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              <span>valentinducev77@gmail.com</span>
+              <Mail className="w-4 h-4 flex-shrink-0" />
+              <span className="truncate">valentinducev@gmail.com</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span>0899921106</span>
+              <Phone className="w-4 h-4 flex-shrink-0" />
+              <span>+359 899 921 106</span>
             </div>
           </div>
         </div>
 
-        {/* Social Links & CV Download - Top Right */}
-        <div className="flex gap-3">
-          <Button
-            onClick={downloadCV}
-            className="glow-effect p-2 rounded-lg bg-primary hover:bg-primary/80 text-primary-foreground"
-            size="sm"
-          >
-            <Download className="w-4 h-4 mr-2" />
-            Download CV
-          </Button>
-          <a 
-            href="https://github.com/valentinDuchev" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="glow-effect p-2 rounded-lg bg-accent hover:bg-accent/80"
-          >
-            <Github className="w-5 h-5" />
-          </a>
-          <a 
-            href="https://www.linkedin.com/in/valentin-duchev-b747b1266/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="glow-effect p-2 rounded-lg bg-accent hover:bg-accent/80"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
+        {/* Actions + Languages */}
+        <div className="flex flex-col gap-4 sm:items-end w-full sm:w-auto">
+          {/* Social Links & CV Download */}
+          <div className="flex gap-3 flex-wrap">
+            <Button
+              onClick={downloadCV}
+              className="glow-effect p-2 rounded-lg bg-primary hover:bg-primary/80 text-primary-foreground"
+              size="sm"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Download CV
+            </Button>
+            <a
+              href="https://github.com/valentinDuchev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glow-effect p-2 rounded-lg bg-accent hover:bg-accent/80"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/valentin-duchev-b747b1266/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glow-effect p-2 rounded-lg bg-accent hover:bg-accent/80"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
+
+          {/* Languages */}
+          <div className="flex gap-3">
+            {languages.map((lang) => (
+              <Language key={lang.name} {...lang} />
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Languages - Bottom Right Corner (above technologies) */}
-      <div className="absolute bottom-44 right-6 flex gap-3">
-        {languages.map((lang) => (
-          <Language key={lang.name} {...lang} />
-        ))}
-      </div>
-      {/* Technologies section at the bottom */}
+      {/* Technologies marquee */}
       <div className="mt-8 pt-6 border-t border-border">
         <div className="overflow-hidden">
           <div className="flex gap-4 animate-scroll-right">
             <TooltipProvider>
-              {/* Duplicate the technologies array to create seamless loop */}
               {[...technologies, ...technologies].map((tech, index) => (
                 <Tooltip key={`${tech.name}-${index}`}>
                   <TooltipTrigger asChild>

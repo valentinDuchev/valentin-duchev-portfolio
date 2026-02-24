@@ -53,7 +53,7 @@ interface CVData {
 
 export const downloadCV = (): void => {
   const link = document.createElement('a');
-  link.href = '/Duchev_CV.pdf';
+  link.href = '/Valentin_Duchev_CV.pdf';
   link.download = 'Valentin_Duchev_CV.pdf';
   document.body.appendChild(link);
   link.click();

@@ -144,8 +144,8 @@ const Education = () => {
               <DialogTrigger asChild>
                 <Card className="section-card cursor-pointer">
                   <CardHeader>
-                    <div className="flex justify-between items-start">
-                      <div>
+                    <div className="flex flex-wrap justify-between items-start gap-2">
+                      <div className="flex-1 min-w-0">
                         <CardTitle className="text-primary">{item.degree}</CardTitle>
                         <p className="text-sm text-muted-foreground mt-1">
                           {item.institution} • {item.location}
@@ -154,7 +154,7 @@ const Education = () => {
                           {item.period}
                         </p>
                       </div>
-                      <Badge variant={item.status === "completed" ? "default" : "secondary"}>
+                      <Badge variant={item.status === "completed" ? "default" : "secondary"} className="flex-shrink-0">
                         {item.status === "completed" ? "Completed" : "In Progress"}
                       </Badge>
                     </div>
@@ -207,12 +207,12 @@ const Education = () => {
                 {courses.map((course) => (
                   <Dialog key={course.id}>
                     <DialogTrigger asChild>
-                      <div className="flex justify-between items-center p-4 rounded-lg bg-accent glow-effect cursor-pointer">
-                        <div>
+                      <div className="flex flex-wrap justify-between items-center gap-2 p-4 rounded-lg bg-accent glow-effect cursor-pointer">
+                        <div className="flex-1 min-w-0">
                           <h4 className="font-medium">{course.name}</h4>
                           <p className="text-sm text-muted-foreground">{course.provider} • {course.period}</p>
                         </div>
-                        <Badge variant="default">Completed</Badge>
+                        <Badge variant="default" className="flex-shrink-0">Completed</Badge>
                       </div>
                     </DialogTrigger>
                     

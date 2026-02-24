@@ -19,59 +19,76 @@ interface ExperienceItem {
 const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
-      id: "own-projects",
-      title: "Working on my own projects",
-      company: "Self-Employed",
-      location: "Remote",
-      period: "October 2021 - Present",
+      id: "dxc",
+      title: "Junior Software Developer",
+      company: "DXC Technology",
+      location: "Varna, Bulgaria",
+      period: "September 2025 – Present",
       status: "current",
       type: "Full-time",
-      description: "Please visit the Projects tab for more details",
+      description: "Developing and maintaining enterprise insurance systems using GraphTalk, a proprietary domain-specific language for the insurance industry.",
       responsibilities: [
-        "Full-stack web development using modern technologies",
-        "Project planning and architecture design",
-        "Client communication and requirement gathering",
-        "Code optimization and performance improvement",
-        "Database design and management",
-        "Deployment and maintenance of applications"
+        "Developing and maintaining enterprise insurance systems using GraphTalk",
+        "Collaborating with senior engineers on large-scale codebases",
+        "Translating complex insurance business requirements into technical specifications",
+        "Writing and reviewing code to meet enterprise-grade quality standards",
+        "Participating in agile ceremonies and sprint planning"
       ],
-      skills: ["Full-Stack Development", "Project Management", "Client Relations", "Problem Solving", "Independent Work", "Continuous Learning"]
+      skills: ["GraphTalk", "Enterprise Systems", "Insurance Domain", "Agile", "Team Collaboration", "Code Review"]
+    },
+    {
+      id: "own-projects",
+      title: "Full-Stack Developer",
+      company: "Self-Employed / Personal Projects",
+      location: "Remote",
+      period: "2020 – Present",
+      status: "current",
+      type: "Full-time",
+      description: "Designing and building full-stack web applications and mobile apps from scratch, taking products from idea to live deployment. Delivered 4 client websites across healthcare, automotive, real estate, and fitness industries.",
+      responsibilities: [
+        "Full-stack web and mobile development using modern technologies",
+        "Project planning, architecture design, and client communication",
+        "Delivered 4 client websites in 3 months for local businesses",
+        "Building and deploying production apps with real users",
+        "Database design and management",
+        "Deployment and ongoing maintenance of applications"
+      ],
+      skills: ["Full-Stack Development", "React", "Node.js", "React Native", "Project Management", "Client Relations", "Deployment"]
     },
     {
       id: "taxback",
-      title: "Customer Support Representative",
-      company: "Taxback International",
-      location: "Remote",
-      period: "December 2022 - Present",
-      status: "current",
+      title: "Customer Service Representative",
+      company: "Taxback / Sprintax",
+      location: "Varna, Bulgaria",
+      period: "December 2022 – September 2025",
+      status: "completed",
       type: "Part-time",
-      description: "Providing comprehensive customer support for tax refund services, handling client inquiries, and ensuring customer satisfaction through effective communication and problem-solving.",
+      description: "Supporting non-US residents with U.S. tax return preparation and navigating Sprintax software. Guided users step by step, answered complex tax-related questions, ensuring accurate on-time filings.",
       responsibilities: [
-        "Handle customer inquiries via email, chat, and phone",
-        "Process tax refund applications and documentation",
-        "Provide technical support for online platforms",
-        "Maintain detailed customer interaction records",
-        "Collaborate with international teams across different time zones",
-        "Ensure compliance with tax regulations and company policies"
+        "Supporting non-US residents with U.S. tax return preparation",
+        "Navigating and explaining Sprintax software to customers",
+        "Answering complex tax-related questions accurately",
+        "Ensuring on-time filings and customer satisfaction",
+        "Maintaining detailed customer interaction records",
+        "Collaborating with international teams across different time zones"
       ],
-      skills: ["Customer Service", "Communication", "Problem Solving", "Tax Knowledge", "Multi-tasking", "Documentation"]
+      skills: ["Customer Service", "Communication", "Tax Knowledge", "Sprintax", "Problem Solving", "Multi-tasking"]
     },
     {
       id: "summer-work",
       title: "Restaurant Manager",
-      company: "Summer Work & Travel Program",
-      location: "United States",
-      period: "Summer 2022 & 2023",
+      company: "Tony Harpers",
+      location: "Old Forge, NY, USA",
+      period: "May 2023 – November 2023",
       status: "completed",
       type: "Seasonal",
-      description: "Managed restaurant operations during summer work and travel programs in the United States, developing leadership skills and cross-cultural communication abilities.",
+      description: "Led a team of 25+ staff in a fast-paced U.S. restaurant, managing daily operations, scheduling, and team coordination.",
       responsibilities: [
-        "Supervised daily restaurant operations and staff",
-        "Managed inventory and supply chain logistics",
+        "Led a team of 25+ staff in daily restaurant operations",
+        "Managed scheduling, inventory, and supply chain logistics",
         "Ensured food safety and quality standards",
         "Handled customer service and complaint resolution",
         "Trained new staff members on procedures and standards",
-        "Coordinated with suppliers and vendors",
         "Managed cash flow and daily financial reporting"
       ],
       skills: ["Leadership", "Team Management", "Customer Service", "Inventory Management", "Cross-cultural Communication", "Problem Solving"]
@@ -81,28 +98,28 @@ const Experience = () => {
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-primary mb-6">Professional Experience</h2>
-      
+
       <div className="space-y-4">
         {experiences.map((experience) => (
           <Dialog key={experience.id}>
             <DialogTrigger asChild>
               <Card className="section-card cursor-pointer">
                 <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div className="flex items-start gap-3">
-                      <Briefcase className="w-5 h-5 text-primary mt-1" />
-                      <div>
+                  <div className="flex flex-wrap justify-between items-start gap-3">
+                    <div className="flex items-start gap-3 flex-1 min-w-0">
+                      <Briefcase className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <div className="min-w-0">
                         <CardTitle className="text-primary">{experience.title}</CardTitle>
                         <p className="text-sm text-muted-foreground mt-1">
                           {experience.company} • {experience.location}
                         </p>
                         <div className="flex items-center gap-2 mt-2">
-                          <Calendar className="w-4 h-4 text-muted-foreground" />
+                          <Calendar className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                           <span className="text-sm text-muted-foreground">{experience.period}</span>
                         </div>
                       </div>
                     </div>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 flex-shrink-0">
                       <Badge variant={experience.status === "current" ? "default" : "secondary"}>
                         {experience.status === "current" ? "Current" : "Completed"}
                       </Badge>
@@ -115,7 +132,7 @@ const Experience = () => {
                 </CardContent>
               </Card>
             </DialogTrigger>
-            
+
             <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-primary flex items-center gap-2">

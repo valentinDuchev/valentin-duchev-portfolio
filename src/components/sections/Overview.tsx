@@ -9,11 +9,10 @@ const Overview = () => {
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground leading-relaxed">
-            Passionate Software Developer with expertise in full-stack web development. 
-            Experienced in modern JavaScript frameworks, database management, and creating 
-            scalable web applications. Currently pursuing Master's degree in Computer Science 
-            while working as a Customer Support Representative. Strong background in both 
-            frontend and backend technologies with a focus on React ecosystem and Node.js.
+            Full-stack developer with a Computer Science degree and a track record of shipping real products.
+            I've built and deployed live platforms used by real users, and I'm now gaining enterprise experience
+            at DXC Technology. I work comfortably across React, Node.js, TypeScript, PostgreSQL, and React Native
+            — solo or in a team.
           </p>
         </CardContent>
       </Card>
@@ -28,13 +27,13 @@ const Overview = () => {
               <h4 className="font-semibold">Bachelor's Degree</h4>
               <p className="text-sm text-muted-foreground">Computer Science</p>
               <p className="text-sm text-muted-foreground">Technical University of Varna</p>
-              <p className="text-sm text-muted-foreground">2021 - 2025</p>
+              <p className="text-sm text-muted-foreground">2020 – 2025</p>
             </div>
             <div>
               <h4 className="font-semibold">High School Diploma</h4>
               <p className="text-sm text-muted-foreground">Language School "Geo Milev"</p>
               <p className="text-sm text-muted-foreground">Dobrich, Bulgaria</p>
-              <p className="text-sm text-muted-foreground">2016 - 2020</p>
+              <p className="text-sm text-muted-foreground">2016 – 2020</p>
             </div>
           </CardContent>
         </Card>
@@ -45,14 +44,19 @@ const Overview = () => {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <h4 className="font-semibold">Customer Support Representative</h4>
-              <p className="text-sm text-muted-foreground">Taxback International</p>
-              <p className="text-sm text-muted-foreground">December 2022 - Present</p>
+              <h4 className="font-semibold">Junior Software Developer</h4>
+              <p className="text-sm text-muted-foreground">DXC Technology</p>
+              <p className="text-sm text-muted-foreground">September 2025 – Present</p>
             </div>
             <div>
-              <h4 className="font-semibold">Restaurant Manager</h4>
-              <p className="text-sm text-muted-foreground">Summer Work & Travel Program, US</p>
-              <p className="text-sm text-muted-foreground">Summer 2022 & 2023</p>
+              <h4 className="font-semibold">Full-Stack Developer</h4>
+              <p className="text-sm text-muted-foreground">Self-Employed / Personal Projects</p>
+              <p className="text-sm text-muted-foreground">2020 – Present</p>
+            </div>
+            <div>
+              <h4 className="font-semibold">Customer Service Representative</h4>
+              <p className="text-sm text-muted-foreground">Taxback / Sprintax</p>
+              <p className="text-sm text-muted-foreground">December 2022 – September 2025</p>
             </div>
           </CardContent>
         </Card>
@@ -67,28 +71,34 @@ const Overview = () => {
             <div>
               <h4 className="font-semibold mb-2">Frontend</h4>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• React.js & React Native</li>
+                <li>• React.js / Next.js</li>
+                <li>• React Native</li>
                 <li>• Angular</li>
+                <li>• TypeScript / JavaScript</li>
                 <li>• HTML5 & CSS3</li>
-                <li>• TailwindCSS</li>
+                <li>• Tailwind CSS</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-2">Backend</h4>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Node.js & Express</li>
-                <li>• MongoDB & PostgreSQL</li>
+                <li>• Node.js / NestJS / Express</li>
+                <li>• PostgreSQL / MongoDB</li>
                 <li>• Prisma ORM</li>
-                <li>• Socket.io & Redis</li>
+                <li>• Redis</li>
+                <li>• REST APIs / WebSockets</li>
+                <li>• GraphTalk</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-2">Tools & Others</h4>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Git Version Control</li>
-                <li>• RESTful APIs</li>
-                <li>• Real-time Applications</li>
-                <li>• Responsive Design</li>
+                <li>• Git / GitHub</li>
+                <li>• Docker</li>
+                <li>• Vercel / Netlify</li>
+                <li>• Jira / Trello / Postman</li>
+                <li>• Responsive Design / SEO</li>
+                <li>• Agile / Scrum</li>
               </ul>
             </div>
           </div>
