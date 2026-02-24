@@ -1,12 +1,11 @@
 import { useState } from "react";
 import Header from "@/components/Header";
-// import TechnologiesSection from "@/components/TechnologiesSection";
 import Navigation from "@/components/Navigation";
+import StickyMobileHeader from "@/components/StickyMobileHeader";
 import Overview from "@/components/sections/Overview";
 import Projects from "@/components/sections/Projects";
 import Education from "@/components/sections/Education";
 import Experience from "@/components/sections/Experience";
-// import About from "@/components/sections/About";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -21,8 +20,6 @@ const Index = () => {
         return <Education />;
       case "experience":
         return <Experience />;
-      case "about":
-        return <div>About section coming soon</div>;
       default:
         return <Overview />;
     }
@@ -30,10 +27,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Sticky compact header — mobile only, appears on scroll */}
+      <StickyMobileHeader activeTab={activeTab} onTabChange={setActiveTab} />
+
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
         <Header />
-        {/* <TechnologiesSection /> */}
         {renderContent()}
       </div>
     </div>

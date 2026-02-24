@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface NavigationProps {
   activeTab: string;
@@ -28,7 +29,7 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
     <div className="flex justify-center mb-8 relative z-20">
       {/* Desktop nav */}
       <Card className="section-card w-fit hidden sm:block">
-        <nav className="flex flex-wrap gap-2 justify-center">
+        <nav className="flex flex-wrap gap-2 justify-center items-center">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -42,21 +43,27 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
               {tab.label}
             </button>
           ))}
+          <div className="ml-2 pl-2 border-l border-border">
+            <ThemeToggle />
+          </div>
         </nav>
       </Card>
 
-      {/* Mobile nav */}
+      {/* Mobile nav (visible before sticky header kicks in) */}
       <div className="sm:hidden w-full">
         <Card className="section-card">
           <div className="flex items-center justify-between px-1 py-1">
             <span className="font-medium text-primary text-sm px-2">{activeLabel}</span>
-            <button
-              onClick={() => setMenuOpen((prev) => !prev)}
-              className="p-2 rounded-lg bg-accent hover:bg-accent/80 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                onClick={() => setMenuOpen((prev) => !prev)}
+                className="p-2 rounded-lg bg-accent hover:bg-accent/80 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
 
           {menuOpen && (
